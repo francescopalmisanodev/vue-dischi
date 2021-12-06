@@ -1,6 +1,6 @@
 <template>
 <div class="m-container">
-    <Card/>
+    <Card v-for="song in songs" :key="song.title" :author="song.author" :title="song.title" :poster="song.poster" :genre="song.genre" :year="song.year"/>
 </div>
 </template>
 
@@ -10,6 +10,9 @@ export default {
     name:"Main",
     components: { 
     Card,
+  },
+  props: {
+      songs: Array,
   }
 }
 </script>
@@ -18,5 +21,7 @@ export default {
     @import "@/scss/variables";
     .m-container {
         background-color:$blue-bg;
+        display: flex;
+        flex-wrap: wrap;
     }
 </style>

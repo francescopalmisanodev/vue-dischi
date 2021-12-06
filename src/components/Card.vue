@@ -1,15 +1,23 @@
 <template>
   <div class="card">
-      <h2>New Jersey</h2>
-      <h3>Bon Jovi</h3>
-      <h5>1988</h5>
-      <h4>Rock</h4>
+      <img :src="poster" :alt="title">
+      <h2>{{title}}</h2>
+      <h3>{{author}}</h3>
+      <h5>{{year}}</h5>
+      <h4>{{genre}}</h4>
   </div>
 </template>
 
 <script>
 export default {
-
+name:"Card",
+props: {
+    author: String,
+    genre: String,
+    poster: String,
+    title: String,
+    year: String,
+}
 }
 </script>
 
@@ -21,9 +29,15 @@ export default {
     align-items: center;
     flex-direction: column;
     padding: 20px;
+    text-align: center; 
+    img{
+        width: 100%;
+    }
     h2{
+        font-size:1.25rem;
         color: white;
         padding: 0.3em;
+        
     }
     h3,h5 {
         color:$grey-txt;
