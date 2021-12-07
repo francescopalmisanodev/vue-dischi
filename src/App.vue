@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <Header/>
-    <Main :songs="songs" />
+    <Header @changeGenre="filterGenre"/>
+    <Main :songs="filtredSongs" />
   </div>
 </template>
 
@@ -13,7 +13,8 @@ import Main from './components/Main.vue';
 export default {
   name: 'App',
   data(){
-    return{songs:[],}
+    return{songs:[],
+    filtredSongs:[],}
   },
   created() {
     this.getMusic();
@@ -23,8 +24,11 @@ export default {
       axios.get("https://flynn.boolean.careers/exercises/api/array/music")
       .then(result =>{
       this.songs=result.data.response;
-      console.log(this.songs);
+      this.filtredSongs=result.data.response;
       } )
+    },
+    filterGenre(changedGenre){
+     this.filtredSongs=this.songs.filter(song => song.genre===changedGenre);
     }
   },
   components: { 

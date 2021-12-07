@@ -1,7 +1,7 @@
 <template>
 <div class="h-container">
     <img src="@/logo.png" alt="Spotify logo">
-    <select name="genre" id="genre">
+    <select v-model="changedGenre" @change="$emit('changeGenre', changedGenre)" name="genre" id="genre">
         <option value="Pop">Pop</option>
         <option value="Rock">Rock</option>
         <option value="Jazz">jazz</option>
@@ -13,7 +13,11 @@
 <script>
 export default {
 name: "Header",
-
+data(){
+    return{
+        changedGenre:"",
+    }
+},
 }
 </script>
 
