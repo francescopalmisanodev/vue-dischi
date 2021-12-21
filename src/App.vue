@@ -43,9 +43,6 @@ export default {
     .container {
       display: flex;
       flex-direction: column;
-      Main{
-        flex-grow: 1;
-      }
     }
 </style> 
 

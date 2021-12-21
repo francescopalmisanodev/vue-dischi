@@ -23,5 +23,6 @@ export default {
         background-color:$blue-bg;
         display: flex;
         flex-wrap: wrap;
+        height: 90vh;
     }
 </style>
